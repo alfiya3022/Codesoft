@@ -1,0 +1,81 @@
+********calculator
+
+num1=int(input("Enter num 1: "))
+num2=int(input("Enter num 2: "))
+opr=input("Enter the operation")
+if opr=="+":
+        print(num1+num2)
+elif opr=="-" :
+        print(num1-num2)
+elif opr=="*" :
+        print(num1*num2)
+elif opr=="/" :
+        print(num1/num2)
+else:
+    print("Invalid operation")
+
+
+
+
+
+****rock paper sissor game
+
+import random
+
+actions = ['rock', 'paper', 'scissors']
+
+while True:
+    user_choice = input('Enter your choice (rock, paper or scissors): ')
+
+    program_choice = random.choice(actions)
+
+    print(f"Your choice {user_choice}, computer choice {program_choice}\n")
+
+    if user_choice == program_choice:
+        print(f"Both players selected {user_choice}. It's a tie!")
+    elif user_choice == "rock":
+        if program_choice == "scissors":
+            print("You win!.")
+        else:
+            print("You lose!")
+    elif user_choice == "paper":
+        if program_choice == "rock":
+            print("You win!")
+        else:
+            print("You lose !")
+    elif user_choice == "scissors":
+        if program_choice == "paper":
+            print("You win!.")
+        else:
+            print("You lose!")
+            
+    play_again = input('Play again? (y/n)')
+    if (play_again.lower() == 'n'):
+        break
+        
+
+
+******password generator
+
+import random
+import string
+
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+def main():
+    try:
+        length = int(input("Enter the desired length of the password: "))
+        if length <= 0:
+            raise ValueError("Password length must be a positive integer.")
+        
+        password = generate_password(length)
+        
+        print("Generated Password:", password)
+    except ValueError as e:
+        print(f"Error: {e}")
+    
+if __name__ == "__main__":
+    main()
